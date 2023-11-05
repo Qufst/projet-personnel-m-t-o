@@ -6,12 +6,14 @@ editor: visual
 
 ## Affichage des Prévisions Météo
 
-```{r}
+```{r,echo=FALSE}
+
 library(httr)
 library(jsonlite)
+library(htmlTable)
 
 # L'URL de l'API
-url <- "https://api.open-meteo.com/v1/meteofrance?latitude=43.6109&longitude=3.8763&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,windspeed_10m_max&timezone=Europe%2FBerlin"
+url <- "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,wind_speed_10m_max&timezone=auto&forecast_days=5"
 
 # Effectuer la requête GET
 response <- GET(url)
@@ -21,32 +23,44 @@ if (http_type(response) == "application/json") {
   # On analyse les données JSON renvoyées par l'API
   data <- fromJSON(content(response,"text"))
   
+  # Charger les données des conditions météo depuis le fichier JSO
+  weather_conditions <- jsonlite::fromJSON("https://raw.githubusercontent.com/Qufst/projet-personnel-m-t-o/main/dessins_meteo.json")
 
-  # on stocke les données :
+
+  # Stocker les données météorologiques
   time <- data$daily$time
-  weathercode <- data$daily$weathercode
+  weathercode <- data$daily$weather_code
   temperature_max <- data$daily$temperature_2m_max
   temperature_min <- data$daily$temperature_2m_min
   sunrise <- data$daily$sunrise
   sunset <- data$daily$sunset
-  windspeed_max <- data$daily$windspeed_10m_max
+  windspeed_max <- data$daily$wind_speed_10m_max
   time[1] <- "aujourd'hui"
   time[2] <- "demain"
-  # 
-
-
 } else {
   cat("La requête a échoué avec le code de réponse:", http_status(response)$reason, "\n")
 }
+
 ```
-```{r}
+
+```{r,echo=FALSE}
 # Charger la bibliothèque htmlTable
 library(htmlTable)
+
+#
+imp <- list()
+for (i in 1:length(weathercode)){
+  imp[i] = weather_conditions[i]
+}
+# Créer des vecteurs pour stocker les éléments de imp afin de pouvoir les utiliser dans le dataframe
+description_vector <- sapply(imp, function(x) x$description)
+image_vector <- paste0("![](", sapply(imp, function(x) x$image), ")")
 
 # Créer un tableau avec les données
 weather_table <- data.frame(
   Date = time,
-  WeatherCode = weathercode,
+  Description = description_vector,
+  Image = paste0("<img src='", sapply(imp, function(x) x$image), "' width='50' height='50' />"),
   TpMax = temperature_max,
   TpMin = temperature_min,
   Sunrise = sunrise,
@@ -56,28 +70,13 @@ weather_table <- data.frame(
 
 # Convertir le tableau en un tableau HTML
 weather_table_html <- htmlTable(weather_table, css.cell = "text-align:left; padding: 8px; border: 1px solid #ccc;")
+```
 
+```{r,echo=TRUE}
 print(weather_table_html)
 ```
 
-```{r}
-# Charger le fichier JSON local
-weather_conditions <- jsonlite::fromJSON("conditions_meteo.json")
-
-# Remplacez cette ligne par le code correspondant à votre condition météorologique actuelle
-weatherCode <- 0
-```
-```{r}
-# Afficher la description et l'image correspondantes en fonction du code météo
-weatherInfo <- weather_conditions[[as.character(weatherCode)]]
-if (!is.null(weatherInfo)) {
-  cat(paste0("<p>", weatherInfo$description, "</p>"))
-  cat(paste0("<img src='", weatherInfo$image, "' alt='Condition météorologique' />"))
-} else {
-  cat("Condition météorologique inconnue")
-}
-```
-```{css}
+```{css,echo=FALSE}
 .styled-table {
   border-collapse: collapse;
   width: 100%;
