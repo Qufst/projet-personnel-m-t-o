@@ -69,14 +69,16 @@ weather_table <- data.frame(
 )
 
 # Convertir le tableau en un tableau HTML
-weather_table_html <- htmlTable(weather_table, css.cell = "text-align:left; padding: 8px; border: 1px solid #ccc;")
-```
-
-```{r,echo=TRUE}
-print(weather_table_html)
+weather_table_html <- htmlTable(weather_table, css.cell = "text-align:left; padding: 8px; border: 1px solid #ccc;",class = "custom-table")
 ```
 
 ```{css,echo=FALSE}
+<style>
+.custom-table {
+  background-color: lightgreen
+}
+</style>
+
 .styled-table {
   border-collapse: collapse;
   width: 100%;
@@ -104,4 +106,39 @@ print(weather_table_html)
 .styled-table tr:hover {
   background-color: #e0e0e0;
 }
+```
+
+
+```{html,echo=FALSE}
+<div class='light-dark-switch'>
+    <button class='light-mode'>Light</button>
+    <button class='dark-mode active'>Dark</button>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const switchContainer = document.querySelector('.light-dark-switch');
+    const lightModeButton = document.querySelector('.light-mode');
+    const darkModeButton = document.querySelector('.dark-mode');
+    
+    // Toggle light mode
+    lightModeButton.addEventListener('click', function() {
+        document.body.classList.remove('dark');
+        this.classList.add('active');
+        darkModeButton.classList.remove('active');
+    });
+    
+    // Toggle dark mode
+    darkModeButton.addEventListener('click', function() {
+        document.body.classList.add('dark');
+        this.classList.add('active');
+        lightModeButton.classList.remove('active');
+    });
+});
+</script>
+
+```
+
+```{r,echo=TRUE}
+
+weather_table_html
 ```
