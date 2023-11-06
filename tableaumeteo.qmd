@@ -2,6 +2,10 @@
 title: "Prévisions Météo"
 format: html
 editor: visual
+output: 
+  prettydoc::html_pretty:
+    theme: hpstr
+    toc: yes
 ---
 
 ## Affichage des Prévisions Météo
@@ -44,17 +48,14 @@ if (http_type(response) == "application/json") {
 ```
 
 ```{r,echo=FALSE}
-# Charger la bibliothèque htmlTable
-library(htmlTable)
-
-#
+#on stocke les descriptions et les images meteo
 imp <- list()
 for (i in 1:length(weathercode)){
   imp[i] = weather_conditions[i]
 }
 # Créer des vecteurs pour stocker les éléments de imp afin de pouvoir les utiliser dans le dataframe
 description_vector <- sapply(imp, function(x) x$description)
-image_vector <- paste0("![](", sapply(imp, function(x) x$image), ")")
+
 
 # Créer un tableau avec les données
 weather_table <- data.frame(
@@ -70,72 +71,6 @@ weather_table <- data.frame(
 
 # Convertir le tableau en un tableau HTML
 weather_table_html <- htmlTable(weather_table, css.cell = "text-align:left; padding: 8px; border: 1px solid #ccc;",class = "custom-table")
-```
-
-```{css,echo=FALSE}
-<style>
-.custom-table {
-  background-color: lightgreen
-}
-</style>
-
-.styled-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.styled-table th, .styled-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
-}
-
-.styled-table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-.styled-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.styled-table tr:nth-child(odd) {
-  background-color: #fff;
-}
-
-.styled-table tr:hover {
-  background-color: #e0e0e0;
-}
-```
-
-
-```{html,echo=FALSE}
-<div class='light-dark-switch'>
-    <button class='light-mode'>Light</button>
-    <button class='dark-mode active'>Dark</button>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const switchContainer = document.querySelector('.light-dark-switch');
-    const lightModeButton = document.querySelector('.light-mode');
-    const darkModeButton = document.querySelector('.dark-mode');
-    
-    // Toggle light mode
-    lightModeButton.addEventListener('click', function() {
-        document.body.classList.remove('dark');
-        this.classList.add('active');
-        darkModeButton.classList.remove('active');
-    });
-    
-    // Toggle dark mode
-    darkModeButton.addEventListener('click', function() {
-        document.body.classList.add('dark');
-        this.classList.add('active');
-        lightModeButton.classList.remove('active');
-    });
-});
-</script>
-
 ```
 
 ```{r,echo=TRUE}
