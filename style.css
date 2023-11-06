@@ -1,0 +1,29 @@
+/* css styles */
+/* Mode Normal */
+body {
+    background-color: #ffffff; /* Fond clair */
+    color: #000000; /* Couleur de texte pour le mode normal */
+  }
+  
+/* Mode Sombre */
+body.dark-mode {
+    background-color: #333333; /* Fond sombre */
+    color: #ffffff; /* Couleur de texte pour le mode sombre */
+  }
+  
+/* Tableau avec arrière-plan vert pâle */
+.table-style {
+    background-color: #ccffcc; /* Arrière-plan vert pâle pour le tableau */
+    border-collapse: collapse;
+  }
+  
+/* Styles pour les lignes impaires du tableau */
+.table-style tbody tr:nth-child(odd) {
+    background-color: #e5ffe5; /* Couleur pour les lignes impaires */
+  }
+  
+/* Styles pour les lignes paires du tableau */
+.table-style tbody tr:nth-child(even) {
+    background-color: #d5ffd5; /* Couleur pour les lignes paires */
+  }
+  
