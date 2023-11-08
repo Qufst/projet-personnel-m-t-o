@@ -28,6 +28,6 @@ execute:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: style.css
     toc: false
 jupyter: python3
