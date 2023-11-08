@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
   render:
-    - tableaumeteo.qmd
+    - tableaumeteopy.qmd
 
 website:
   title: "Météo à Montpellier"
@@ -16,7 +16,7 @@ website:
         href: https://github.com/Qufst/projet-personnel-mto
         text: GitHub
     left:
-      - href: tableaumeteo.qmd
+      - href: tableaumeteopy.qmd
         text: Home
 
       
