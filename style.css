@@ -1,13 +1,1 @@
 /* css styles */
-/* Mode Normal */
-body {
-    background-color: rgb(133, 226, 233); /* Fond clair */
-    color: #000000; /* Couleur de texte pour le mode normal */
-  }
-  
-/* Mode Sombre */
-body.dark-mode {
-    background-color: #1a1919; /* Fond sombre */
-    color: rgb(200, 224, 161); /* Couleur de texte pour le mode sombre */
-  }
-  
