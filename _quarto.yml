@@ -1,12 +1,14 @@
-
-execute:
-  echo: false          
-
 project:
   type: website
   output-dir: docs
+  render: markdown
+
 website:
   title: "Météo à Montpellier"
+  page-navigation: true
+  repo-url: https://github.com/Qufst/projet-personnel-mto
+  repo-actions: [source, issue]
+  
   navbar:
     tools: 
       - icon: github
@@ -14,14 +16,18 @@ website:
         text: GitHub
     left:
       - href: tableaumeteopy.qmd
-        text: Prévisions
+        text: Home
+
+      
+
+        
+execute:
+  echo: false          
+
+
 format:
   html:
-    theme: 
-      light: minty
-      dark: darkly
-    css: style.css
-    toc: true
-    page-layout: full
-
-editor: visual
+    theme: cosmo
+    css: styles.css
+    toc: false
+jupyter: python3
