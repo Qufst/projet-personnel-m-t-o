@@ -1,7 +1,6 @@
 project:
   type: website
   output-dir: docs
-  render: markdown
 
 website:
   title: "Météo à Montpellier"
