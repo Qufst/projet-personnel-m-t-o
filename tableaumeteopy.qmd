@@ -693,10 +693,4 @@ display(HTML(html_code1))
 display(HTML(html_code2))
 ```
 
-Météo de Montpellier Occitanie, France, 43.61°N 3.88°E, 55m s.n.m. pour la journée en cours ainsi que les 4 prochains jours.
-
 Certaines descriptions sont affichées en survolant les cellules et les images avec un curseur de souris. Il peut arriver que le symbole "-" s'affiche à la place de certaines données indisponibles.
-
-Site à usage non commerciale, toutes les images svg ont été récupérées sur différents sites producteurs d'images svg gratuitement.
-
-Toutes les informations proviennent d'une API (Application Programming Interface) choisie proposée par [open-meteo.com](https://open-meteo.com/en/docs/meteofrance-api) et sont mises à jour toutes les trois heures.
