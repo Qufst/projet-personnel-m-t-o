@@ -1,6 +1,5 @@
 ---
 title: "Météo Montpellier"
-subtitle: "Occitanie, France, 43.61°N 3.88°E, 55m s.n.m."
 ---
 
 ```{python}
@@ -694,7 +693,7 @@ display(HTML(html_code1))
 display(HTML(html_code2))
 ```
 
-Météo de Montpellier pour la journée en cours ainsi que les 4 prochains jours.
+Météo de Montpellier Occitanie, France, 43.61°N 3.88°E, 55m s.n.m. pour la journée en cours ainsi que les 4 prochains jours.
 
 Certaines descriptions sont affichées en survolant les cellules et les images avec un curseur de souris. Il peut arriver que le symbole "-" s'affiche à la place de certaines données indisponibles.
 

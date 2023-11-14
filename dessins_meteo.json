@@ -1,13 +1,13 @@
 {
 	"0" :{
 		"code" : "0",
-		"description" : " Ensoleillé, pensez à la crême solaire " ,
+		"description" : " Ensoleille, pensez à la crême solaire " ,
 		"image" : " images_svg/349394-ffeb3b.svg ",
 		"urln" : "images_nuits/1.svg"
 	},
 	"1" :{
 		"code" : "1",
-		"description" : " Principalement ensoleillé, pensez à la crême solaire " ,
+		"description" : " Principalement ensoleille, pensez à la crême solaire " ,
 		"image" : " images_svg/1314952-ffeb3b.svg ",
 		"urln" : "images_nuits/1.svg"
 	},
@@ -19,25 +19,25 @@
 	},
 	"3" :{
 		"code" : "3",
-		"description" : " Nuageux, ne déprimez pas trop " ,
+		"description" : " Nuageux, ne deprimez pas trop " ,
 		"image" : " images_svg/clouds_icon-icons.com_62491.svg ",
 		"urln" : "images_nuits/3.svg"
 	},
 	"45" :{
 		"code" : "45",
-		"description" : " légère Brume, faites attention aux zombies " ,
+		"description" : " legere Brume, faites attention aux zombies " ,
 		"image" : " images_svg/cloudy-foggy-windy-weather-symbol_icon-icons.com_74092.svg ",
 		"urln" : "images_nuits/45.svg"
 	},
 	"48" :{
 		"code" : "48",
-		"description" : " Brouillard, les zombies se relèvent " ,
+		"description" : " Brouillard, les zombies se relevent " ,
 		"image" : " images_svg/if-weather-30-2682821_90800.svg ",
 		"urln" : "images_nuits/45.svg"
 	},
 	"51" :{
 		"code" : "51",
-		"description" : " pluie légère, pensez au produit pour l'essuie-glace " ,
+		"description" : " pluie legere, pensez au produit pour l'essuie-glace " ,
 		"image" : " images_svg/water_rain_wet_weather_drop_raindrop_cloud_icon_150802.svg ",
 		"urln" : "images_nuits/61.svg"
 	},
@@ -53,7 +53,7 @@
 		"urln" : "images_nuits/65.svg"
 	},
 	"56" :{"code" : "56",
-		"description" : " pluie légère, faible température, attention au verglas " ,
+		"description" : " pluie legere, faible température, attention au verglas " ,
 		"image" : " images_svg/water_rain_wet_weather_drop_raindrop_cloud_icon_150802.svg ",
 		"urln" : "images_nuits/65.svg"
 	},
@@ -63,7 +63,7 @@
 		"urln" : "images_nuits/65.svg"
 	},
 	"61" :{"code" : "61",
-		"description" : " Pluie Légère, pensez au produit pour l'essuie-glace " ,
+		"description" : " Pluie Legere, pensez au produit pour l'essuie-glace " ,
 		"image" : " images_svg/water_rain_wet_weather_drop_raindrop_cloud_icon_150802.svg ",
 		"urln" : "images_nuits/61.svg"
 	},
@@ -78,7 +78,7 @@
 		"urln" : "images_nuits/65.svg"
 	},
 	"66" :{"code" : "66",
-		"description" : " pluie légère, faible température, attention au verglas " ,
+		"description" : " pluie legere, faible température, attention au verglas " ,
 		"image" : " images_svg/water_rain_wet_weather_drop_raindrop_cloud_icon_150802.svg ",
 		"urln" : "images_nuits/61.svg"
     },
@@ -88,7 +88,7 @@
 		"urln" : "images_nuits/65.svg"
 	},
 	"71" :{"code" : "71",
-		"description" : " Neige légère, faites des bonhommes de neiges, prudence sur la route " ,
+		"description" : " Neige legere, faites des bonhommes de neiges, prudence sur la route " ,
 		"image" : " images_svg/snow_winter_snowman_icon_232769.svg ",
 		"urln" : "images_nuits/71.svg"
 	},
@@ -108,7 +108,7 @@
 		"urln" : "images_nuits/77.svg"
 	},
 	"80" :{"code" : "80",
-		"description" : " Averses légères, sortez les parapluies" ,
+		"description" : " Averses legeres, sortez les parapluies" ,
 		"image" : " images_svg/umbrella_icon-icons.com_60736.svg ",
 		"urln" : "images_nuits/80.svg"
 	},
@@ -138,7 +138,7 @@
 		"urln" : "images_nuits/95.svg"
 	},
 	"96" :{"code" : "96",
-		"description" : " Orages légers avec grêle " ,
+		"description" : " Orages legers avec grêle " ,
 		"image" : " images_svg/hail_icon_216105.svg ",
 		"urln" : "images_nuits/96.svg"
 	},
