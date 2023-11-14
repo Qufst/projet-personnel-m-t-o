@@ -2,7 +2,7 @@ name: Actualiser le site
 
 on:
   schedule:
-      - cron: '0 6,12,18 * * *'
+      - cron: '0 6,12,18,23 * * *'
   push:
     branches:
       - main
