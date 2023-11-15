@@ -6,6 +6,8 @@ title: "Météo Montpellier"
 """
 API
 """
+
+# On importe ce dont on a besoin
 from IPython.display import display, HTML
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,10 +18,10 @@ import pandas as pd
 import requests
 from collections import Counter
 
-# Obtenir la date actuelle
+# date actuelle
 today = datetime.now()
 
-# Obtenir la date du cinquième jour
+# date du cinquième jour
 
 dernier_jour = today + timedelta(days=4)
 
@@ -32,8 +34,9 @@ fin = dernier_jour.strftime(format_date)
 
 url1 = f"https://api.open-meteo.com/v1/meteofrance?latitude=43.6109&longitude=3.8763&daily=weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&timezone=Europe%2FBerlin&start_date={debut}&end_date={fin}"
 
-# URL de l'API pour calculer la vitesse moyenne du vent
+# URL de l'API pour calculer la vitesse moyenne du vent et pour les prévisions de la journée
 url2 = f"https://api.open-meteo.com/v1/meteofrance?latitude=43.6109&longitude=3.8763&hourly=temperature_2m,weather_code,windspeed_10m&timezone=Europe%2FBerlin&start_date={debut}&end_date={fin}"
+
 # Envoi de la requête GET aux APIs
 response1 = requests.get(url1)
 response2 = requests.get(url2)
@@ -53,7 +56,7 @@ if response1.status_code == 200:
     sunset = data["daily"]["sunset"]
     
 
-    # Prendre les valeurs entières et remplacer les valeurs manquantes par "-"
+    # Prendre les valeurs entières et remplacer les valeurs manquantes par "-" pour ne pas avoir de problême
     tp_max_ent = [round(temp) if not pd.isna(
         temp) else "?" for temp in tp_max]
     tp_min_ent = [round(temp) if not pd.isna(
@@ -65,6 +68,7 @@ if response1.status_code == 200:
 
 # Vérification du statut de la requête "hourly"
 if response2.status_code == 200:
+
     # Conversion des données JSON en un dictionnaire Python
     data2 = response2.json()
 
@@ -80,6 +84,7 @@ if response2.status_code == 200:
     for i in range(0,23):
         tp.append(tp211[i])
 else:
+
     # Affichage d'un message d'erreur si la requête échoue
     print("Erreur lors de la récupération des données météorologiques horaires.")
 
@@ -125,6 +130,7 @@ with open('dessins_meteo.json', 'r') as json_im:
 
 # Créer un dictionnaire de correspondance entre les codes WMO et les noms et URLs du fichier JSON
 correspondance_wmo = {str(key): value for key, value in data.items()}
+
 # Récupérer les URLs et les noms à partir des codes WMO
 noms_urls = []
 info = []
