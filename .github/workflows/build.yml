@@ -2,14 +2,15 @@ name: Actualiser le site
 
 on:
   schedule:
-      - cron: '34 19 * * *'
+      - cron: '27 22 * * *'
   push:
     branches: ["main"]
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    permission: contents:write
+    permission: 
+      contents: write
 
     steps:
       - name: Checkout Repository
