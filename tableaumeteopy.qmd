@@ -316,16 +316,18 @@ tp2_ent = [round(temp) for temp in tp2]
 # Echelle discrète de couleurs basée sur la vitesse du vent
 
 def vent_to_color(vent):
-    if (vent < 30):
+    if (vent < 10):
         return 'rgba(0, 0, 0, 0)'
-    elif (30 <= vent < 50):
+    elif (10 <= vent < 25):
         return 'rgb(0, 10, 30)'
+    elif (25 <= vent < 50):
+        return 'rgb(0, 20, 50)'
     elif (50 <= vent < 100):
-        return 'rgb(0, 20, 80)'
+        return 'rgb(0, 30, 80)'
     elif (100 <= vent < 150):
-        return 'rgb(0, 30, 160)'
+        return 'rgb(0, 40, 160)'
     else:
-        return 'rgb(0, 40, 255)'
+        return 'rgb(0, 50, 255)'
 #on crée la moyenne de la température max et de la température min par jour pour plus tard colorer les cases du tableau en fonction de cette moyenne 
 moyenne=[]
 moyenne.append((tp_max_ent[0]+tp_min_ent[0])/2)
