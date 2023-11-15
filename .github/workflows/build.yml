@@ -2,29 +2,34 @@ name: Actualiser le site
 
 on:
   schedule:
-      - cron: '0 6,12,18,0 * * *'
+      - cron: '0 6,12,18 * * *'
   push:
-    branches:
-      - main
+    branches: ["main"]
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
+    permission: write
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Set up Python et dependancies
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: "3.11.5"
+          cache: "pip"
+      - run: python3 -m pip install jupyter
+      - run: python3 -m pip install -r exigences.txt
 
       - name: Install Quarto
-        run: |
-          pip install quarto
+        uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Actualiser le site avec Quarto
-        run: |
-          quarto render tableaumeteopy.qmd
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
