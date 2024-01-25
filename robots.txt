@@ -1,1 +1,1 @@
-Sitemap: https://github.com/Qufst/projet-personnel-m-t-o/sitemap.xml
+Sitemap: https://Qufst.github.io/projet-personnel-m-t-o/sitemap.xml
