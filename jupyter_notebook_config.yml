@@ -1,0 +1,10 @@
+ServerProxy:
+  servers:
+    mybinder:
+      command: ['python3', '-m', 'http.server', '{port}']
+      port: 8888
+      timeout: 60
+      launcher_entry:
+        enabled: true
+        icon_path: '/path/to/icon'
+        title: 'MyBinder'
