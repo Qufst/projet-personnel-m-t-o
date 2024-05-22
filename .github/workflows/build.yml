@@ -5,6 +5,9 @@ on:
     - cron: '0 7,13,19 * * *'
   push:
     branches: ["main"]
+  repository_dispatch:
+    types: [custom-event]  # Déclencheur pour l'événement repository_dispatch
+  
 
 jobs:
   build-deploy:
