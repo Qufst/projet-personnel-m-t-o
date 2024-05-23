@@ -7,6 +7,14 @@ on:
     branches: ["main"]
   repository_dispatch:
     types: [custom-event]  # Déclencheur pour l'événement repository_dispatch
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
   
 
 jobs:
